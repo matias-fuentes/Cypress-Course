@@ -1,0 +1,129 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "E2E eCommerce testing validation",
+    "line": 1,
+    "id": "e2e-ecommerce-testing-validation",
+    "tags": [],
+    "uri": "ecommerce.feature",
+    "elements": [
+      {
+        "id": "e2e-ecommerce-testing-validation;e2e-ecommerce-testing-validation-with-simulation-of-product-purchase-procedure",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "E2E eCommerce testing validation with simulation of product purchase procedure",
+        "tags": [
+          {
+            "name": "@purchaseTest",
+            "line": 3
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "we open the eCommerce page",
+            "result": {
+              "status": "passed",
+              "duration": 3041000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "we go to the Shop section and add products to the cart",
+            "result": {
+              "status": "passed",
+              "duration": 2307000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "validate that the total price it's correct",
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "we select a country, accept the Terms & Conditions and check if the success message it's visible or not",
+            "result": {
+              "status": "passed",
+              "duration": 5501000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "e2e-ecommerce-testing-validation;homepage-form-validation",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Homepage form validation",
+        "tags": [
+          {
+            "name": "@formTest",
+            "line": 10
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "we open the eCommerce page",
+            "result": {
+              "status": "passed",
+              "duration": 1154000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "name",
+                      "gender"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Bob",
+                      "Female"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "we fill the form details",
+            "result": {
+              "status": "passed",
+              "duration": 336000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "we validate the form behaviour",
+            "result": {
+              "status": "passed",
+              "duration": 24000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

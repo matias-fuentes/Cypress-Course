@@ -1,0 +1,27 @@
+{
+    "name": "cypress-course",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "coursesTests": "npx cypress run --spec cypress/integration/courses.js --headed --no-exit",
+        "recordeCommerceTests": "npm run eCommerceTests -- --record --key 87e6814a-105f-43d6-b09f-7c97264544ea"
+    },
+    "author": "Matías Fuentes",
+    "license": "ISC",
+    "devDependencies": {
+        "cypress": "10.9.0",
+        "cypress-cucumber-preprocessor": "4.3.1",
+        "cypress-iframe": "1.0.1",
+        "multiple-cucumber-html-reporter": "3.0.1"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true,
+        "cucumberJson": {
+            "generate": true,
+            "outputFolder": "cypress/cucumber-report",
+            "filePrefix": "",
+            "fileSuffix": ".cucumber"
+        }
+    }
+}
