@@ -11,7 +11,10 @@ describe('My second block of tests', () => {
         cy.get('[value="radio2"]').check().should('be.checked');
 
         cy.get('#checkBoxOption1').as('checkbox1');
-        cy.get('@checkbox1').check().should('be.checked').and('have.value', 'option1');
+        cy.get('@checkbox1')
+            .check()
+            .should('be.checked')
+            .and('have.value', 'option1');
         cy.get('@checkbox1').uncheck().should('not.be.checked');
         // 'option2' and 'option3' are part of the 'value' property within the checkbox element.
         cy.get('input[type="checkbox"]').check(['option2', 'option3']);
@@ -57,10 +60,14 @@ describe('My second block of tests', () => {
         /* However, you can have some validation if you fire the pop-up events (window:alert and
         window:confirm) through the on() method while extracting its text. */
         cy.on('window:alert', alertMessage => {
-            expect(alertMessage).to.equal('Hello , share this practice page and share your knowledge');
+            expect(alertMessage).to.equal(
+                'Hello , share this practice page and share your knowledge'
+            );
         });
         cy.on('window:confirm', confirmMessage => {
-            expect(confirmMessage).to.equal('Hello , Are you sure you want to confirm?');
+            expect(confirmMessage).to.equal(
+                'Hello , Are you sure you want to confirm?'
+            );
         });
 
         // Elements with a visibility property.
@@ -77,7 +84,7 @@ describe('My second block of tests', () => {
         jQuery functions with Cypress functions. It will only work if you use only Cypress functions.
         However, if you want to combine both types of functions, you can resolve them manually with then(). */
         cy.get('tr td:nth-child(2)').each(($course, index) => {
-            if ($course.text().includes('Python')) {
+            if ($course.text().indexOf('Python') !== -1) {
                 cy.get('tr td:nth-child(3)')
                     .eq(index)
                     .then($coursePrice => {

@@ -27,7 +27,7 @@
             "name": "we open the eCommerce page",
             "result": {
               "status": "passed",
-              "duration": 3041000000
+              "duration": 1378000000
             }
           },
           {
@@ -37,7 +37,7 @@
             "name": "we go to the Shop section and add products to the cart",
             "result": {
               "status": "passed",
-              "duration": 2307000000
+              "duration": 1543000000
             }
           },
           {
@@ -47,7 +47,7 @@
             "name": "validate that the total price it's correct",
             "result": {
               "status": "passed",
-              "duration": 22000000
+              "duration": 91000000
             }
           },
           {
@@ -57,7 +57,7 @@
             "name": "we select a country, accept the Terms & Conditions and check if the success message it's visible or not",
             "result": {
               "status": "passed",
-              "duration": 5501000000
+              "duration": 5776000000
             }
           }
         ]
@@ -82,7 +82,7 @@
             "name": "we open the eCommerce page",
             "result": {
               "status": "passed",
-              "duration": 1154000000
+              "duration": 592000000
             }
           },
           {
@@ -109,7 +109,7 @@
             "name": "we fill the form details",
             "result": {
               "status": "passed",
-              "duration": 336000000
+              "duration": 399000000
             }
           },
           {
@@ -119,7 +119,7 @@
             "name": "we validate the form behaviour",
             "result": {
               "status": "passed",
-              "duration": 24000000
+              "duration": 83000000
             }
           }
         ]

@@ -1,19 +1,35 @@
 {
     "name": "cypress-course",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "A repository where I learn Cypress",
+    "main": "",
     "scripts": {
-        "coursesTests": "npx cypress run --spec cypress/integration/courses.js --headed --no-exit",
-        "recordeCommerceTests": "npm run eCommerceTests -- --record --key 87e6814a-105f-43d6-b09f-7c97264544ea"
+        "cypress": "cypress open",
+        "sso-server": "concurrently \"npm run cypress\" \"node sso/app_server.js --port 7074\" \"node sso/auth_server.js --port 7075\""
     },
     "author": "Matías Fuentes",
     "license": "ISC",
+    "dependencies": {
+        "body-parser": "1.18.2",
+        "debug": "3.1.0",
+        "dotenv": "^16.0.3",
+        "express": "4.16.2",
+        "express-session": "1.15.6",
+        "hbs": "^4.0.1",
+        "minimist": "1.2.3",
+        "morgan": "1.9.1"
+    },
     "devDependencies": {
-        "cypress": "10.9.0",
+        "@cypress/browserify-preprocessor": "^3.0.2",
+        "@types/cypress-cucumber-preprocessor": "^4.0.1",
+        "@types/neat-csv": "^5.1.1",
+        "cypress": "10.11.0",
         "cypress-cucumber-preprocessor": "4.3.1",
         "cypress-iframe": "1.0.1",
-        "multiple-cucumber-html-reporter": "3.0.1"
+        "cypress-sql-server": "^1.0.0",
+        "multiple-cucumber-html-reporter": "3.0.1",
+        "neat-csv": "^5.2.0",
+        "typescript": "^4.8.4"
     },
     "cypress-cucumber-preprocessor": {
         "nonGlobalStepDefinitions": true,

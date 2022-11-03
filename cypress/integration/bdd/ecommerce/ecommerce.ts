@@ -16,6 +16,8 @@ Given('we open the eCommerce page', () => {
 When('we go to the Shop section and add products to the cart', () => {
     homePage.getShopBtn().click();
 
+    /* 4) "Create a function which, in the Shops section, based on the name of the product that
+    we sent as an argument, it adds that specified product to the cart": */
     globalThis.mockedData.productNames.forEach(productName => {
         cy.addToCart(productName);
     });
@@ -25,14 +27,14 @@ When('we go to the Shop section and add products to the cart', () => {
 });
 
 And("validate that the total price it's correct", () => {
-    let totalSum = 0;
-    cy.get('tr > td.col-sm-1:nth-child(4) > strong').each(productTotal => {
-        productTotal = productTotal.text();
+    let totalSum: number = 0;
+    cy.get('tr > td.col-sm-1:nth-child(4) > strong').each(productTotalEl => {
+        let productTotal: string | number = productTotalEl.text();
         productTotal = +productTotal.substring(3, productTotal.length);
         totalSum += productTotal;
     });
-    cy.get('td.text-right > h3 > strong').then(total => {
-        total = total.text();
+    cy.get('td.text-right > h3 > strong').then(totalEl => {
+        let total: string | number = totalEl.text();
         total = +total.substring(3, total.length);
         expect(total).to.be.equal(totalSum);
     });
@@ -49,7 +51,7 @@ Then("we select a country, accept the Terms & Conditions and check if the succes
 
 // Second scenario.
 
-let name;
+let name: string;
 
 When('we fill the form details', dataTable => {
     const formData = dataTable.rawTable[1];

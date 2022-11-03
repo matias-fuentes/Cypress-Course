@@ -3,11 +3,17 @@
 import HomePage from '../support/pageObjects/homepage';
 import Shop from '../support/pageObjects/shop';
 
+interface FixturesType {
+    name: string;
+    gender: string;
+    productNames: string[];
+}
+
 describe('eCommerce tests', () => {
     /* All setup related configuration should be written inside Cypress hooks, including loading
     the fixtures folder. */
     before(() => {
-        cy.fixture('example').then(mockedData => {
+        cy.fixture('example').then((mockedData: FixturesType) => {
             globalThis.mockedData = mockedData;
         });
     });
@@ -23,7 +29,9 @@ describe('eCommerce tests', () => {
 
         /* 1) Check if whatever we type in the 'name' input it's correctly two-way binded on the 'Two-way Data
         Binding Example' input.*/
-        homePage.getTwoWayDataBindingInput().should('have.value', globalThis.mockedData.name);
+        homePage
+            .getTwoWayDataBindingInput()
+            .should('have.value', globalThis.mockedData.name);
 
         // 2) Check if the 'name' field has a 'minlength' attribute with a value of '2'.
         homePage.getNameInput().should('have.attr', 'minlength', '2');
@@ -44,14 +52,16 @@ describe('eCommerce tests', () => {
         shopPage.getCheckoutBtn().click();
 
         // We check the sum...
-        let totalSum = 0;
-        cy.get('tr > td.col-sm-1:nth-child(4) > strong').each(productTotal => {
-            productTotal = productTotal.text();
-            productTotal = +productTotal.substring(3, productTotal.length);
-            totalSum += productTotal;
-        });
-        cy.get('td.text-right > h3 > strong').then(total => {
-            total = total.text();
+        let totalSum: number = 0;
+        cy.get('tr > td.col-sm-1:nth-child(4) > strong').each(
+            productTotalEl => {
+                let productTotal: string | number = productTotalEl.text();
+                productTotal = +productTotal.substring(3, productTotal.length);
+                totalSum += productTotal;
+            }
+        );
+        cy.get('td.text-right > h3 > strong').then(totalEl => {
+            let total: string | number = totalEl.text();
             total = +total.substring(3, total.length);
             expect(total).to.be.equal(totalSum);
         });
@@ -65,3 +75,5 @@ describe('eCommerce tests', () => {
         cy.get('.alert').should('be.visible');
     });
 });
+
+export default FixturesType;
